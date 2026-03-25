@@ -6,6 +6,9 @@ class RandomApp {
         this.element.addEventListener('click', (e) => {
             this.roll();
         });
+
+        //initial roll on page open
+        this.roll();
     }
 
     roll(min = 0, max = 10) {
