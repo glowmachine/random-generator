@@ -54,6 +54,10 @@ menu {
 .choice {
     font-size: clamp(2rem, 100vh, 20rem);
     line-height: 1;
-    user-select: none;
     cursor: pointer;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
