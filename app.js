@@ -3,7 +3,8 @@ class RandomApp {
         this.element = document.querySelector('.choice');
         this.value = this.element.textContent;
 
-        this.element.addEventListener('click', (e) => {
+        this.element.addEventListener('pointerdown', (e) => {
+            e.preventDefault();
             this.roll();
         });
 
