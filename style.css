@@ -1,0 +1,59 @@
+/* GLOBAL RESET ================================================== */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* PAGE DEFAULTS ================================================= */
+
+html {
+    height: 100%;
+    --HUE: 0;
+    --DARKER-HSL: var(--HUE) 72% 10%;
+    --DARK-HSL: var(--HUE) 72% 25%;
+    --LIGHT-HSL: var(--HUE) 72% 75%;
+    --LIGHTER-HSL: var(--HUE) 72% 90%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsl(var(--LIGHTER-HSL));
+    color: hsl(var(--DARKER-HSL));
+}
+
+/* SEMANTIC TAGS ================================================= */
+
+header {
+    margin: 1rem;
+}
+
+main {}
+
+footer {
+    margin: 1rem;
+}
+
+menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* CLASSES ======================================================= */
+
+.menu-icon {
+    font-size: 1.5rem;
+}
+
+.choice {
+    font-size: clamp(2rem, 100vh, 20rem);
+    line-height: 1;
+    user-select: none;
+    cursor: pointer;
+}
