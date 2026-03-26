@@ -33,7 +33,18 @@ header {
     margin: 1rem;
 }
 
-main {}
+main {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: relative;
+    padding: 1rem;
+}
 
 footer {
     margin: 1rem;
@@ -52,6 +63,13 @@ menu {
 }
 
 .random {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background-color: transparent;
+
     font-size: clamp(15rem, min(50vw, 75vh), 30rem);
     line-height: 1;
     cursor: pointer;
@@ -62,4 +80,18 @@ menu {
     -ms-user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-drag: none;
+}
+
+.range {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.range__min,
+.range__max {
+    font-size: 2rem;
+    text-align: center;
+    width: 10rem;
+    padding-left: 1ch;
 }
