@@ -1,7 +1,7 @@
 class RandomApp {
     constructor() {
-        this.element = document.querySelector('.choice');
-        this.value = this.element.textContent;
+        this.element = document.querySelector('.random');
+        // this.value = this.element.innText;
 
         this.element.addEventListener('pointerdown', (e) => {
             e.preventDefault();

@@ -51,7 +51,7 @@ menu {
     font-size: 1.5rem;
 }
 
-.choice {
+.random {
     font-size: clamp(15rem, min(50vw, 75vh), 30rem);
     line-height: 1;
     cursor: pointer;
