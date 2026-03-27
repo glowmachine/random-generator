@@ -15,7 +15,8 @@ class RandomApp {
                 this.roll(this.min, this.max);
             }
             else {
-                this.element.textContent = '?';
+                // this.element.textContent = '?';
+                this.roll();
             }
         });
     }
@@ -23,14 +24,15 @@ class RandomApp {
     roll(min = 1, max = 10) {
         this.element.textContent =
             Math.floor(Math.random() * (max - min + 1) + min);
-        this.addToHistory(this.element.textContent);
-        this.renderHistory();
+        // this.addToHistory(this.element.textContent);
+        // this.renderHistory();
     }
 
     rangeListener() {
         const min = document.querySelector('.range__min');
         const max = document.querySelector('.range__max');
 
+        if (!this.min || !this.max) return;
         this.min = Number(min.value);
         this.max = Number(max.value);
 
@@ -42,18 +44,18 @@ class RandomApp {
         });
     }
 
-    addToHistory(newValue) {
-        this.historyList = [...this.historyList.slice(-4), newValue];
-    }
+    // addToHistory(newValue) {
+    //     this.historyList = [...this.historyList.slice(-4), newValue];
+    // }
 
-    renderHistory() {
-        this.historyElement.innerHTML = '';
-        this.historyList.forEach((item) => {
-            const newItem = document.createElement('li');
-            newItem.textContent = item;
-            this.historyElement.appendChild(newItem);
-        });
-    }
+    // renderHistory() {
+    //     this.historyElement.innerHTML = '';
+    //     this.historyList.forEach((item) => {
+    //         const newItem = document.createElement('li');
+    //         newItem.textContent = item;
+    //         this.historyElement.appendChild(newItem);
+    //     });
+    // }
 }
 
 const randomApp = new RandomApp();
