@@ -22,14 +22,14 @@
 
 .menu__title-area {
     margin: .75rem 0 1.5rem 0;
-    height: 2.5rem;
     display: flex;
     justify-content: space-between;
     gap: .5rem;
 }
 
 .menu__title-container {
-    flex: 1;
+    height: 2.5rem;
+    width: 100%;
     background-color: hsl(var(--LIGHT-HSL));
     display: flex;
     flex-direction: column;
@@ -48,8 +48,7 @@
     color: hsl(var(--LIGHT-HSL));
     font-size: 2rem;
     font-weight: 900;
-    line-height: 1;
-    align-self: center;
+    margin-top: 0;
     text-align: right;
     text-decoration: none;
 }
@@ -84,7 +83,6 @@
 }
 
 .menu__content {
-    border: 1px dashed black;
     flex-direction: column;
     gap: .75rem;
     height: 100%;
@@ -103,7 +101,6 @@
 }
 
 .menu__options--grid {
-    border: 1px solid red;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: .75rem;
