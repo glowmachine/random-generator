@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Random Generator</title>
+    <meta name="description" content="A simple webapp for when you need a random...">
+    <meta name="author" content="Michael Wong">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settings.css">
+    <script defer src="settings.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Ipsum Lorem</h1>
+    </header>
+    <main>
+        <section class="menu">
+            <div class="menu__title-area">
+                <div class="menu__title-container menu__container">
+                    <h2 class="menu__title-text">Settings</h2>
+                </div>
+                <a href="/" class="menu__title-link">↱</a>
+            </div>
+            <nav class="menu__tab-area">
+                <input type="radio" name="tab" id="radio-numbers" class="menu__tab-radio" value="menuNumber">
+                <label for="radio-numbers" class="menu__tab-label">Numbers</label>
+                <!-- <input type="radio" name="tab" id="radio-colors" class="menu__tab-radio" value="menuColor">
+                <label for="radio-colors" class="menu__tab-label">Colors</label> -->
+                <input type="radio" name="tab" id="radio-food" class="menu__tab-radio" value="menuFood">
+                <label for="radio-food" class="menu__tab-label">Food</label>
+            </nav>
+            <form action="" id="menuNumber" class="menu__content">
+                <div class="menu__options">
+                    <div class="menu__item-container"><label for="min">From: </label>
+                        <input type="number" class="range__min" name="min" value="1">
+                    </div>
+                    <div class="menu__item-container"><label for="max">To: </label>
+                        <input type="number" class="range__max" name="max" value="10">
+                    </div>
+                    <div class="menu__item-container">
+                        <label for="inclusive">Inclusive: </label>
+                        <input type="range" name="inclusive" min="0" max="1">
+                    </div>
+                    <div class="menu__item-container"><span>History: </span><span>1,2,3,4,5,6,7,8,9,10</span></div>
+                </div>
+                <hr class="menu__item__divider">
+                <button type="submit" class="menu__item__save-button">Save</button>
+            </form>
+            </div>
+            <!-- <section id="menuColor" class="menu__content">
+            </section> -->
+            <form action="" id="menuFood" class="menu__content">
+                <div class="menu__options--grid">
+                    <div><label for="rice">🍚 : </label>
+                        <input type="checkbox" name="rice">
+                    </div>
+                    <div><label for="soup">🍜 : </label>
+                        <input type="checkbox" name="soup">
+                    </div>
+                    <div><label for="sushi">🍣 : </label>
+                        <input type="checkbox" name="sushi">
+                    </div>
+                    <div><label for="pizza">🍕 : </label>
+                        <input type="checkbox" name="pizza">
+                    </div>
+                    <div><label for="burger">🍔 : </label>
+                        <input type="checkbox" name="burger">
+                    </div>
+                    <div><label for="burrito">🌯 : </label>
+                        <input type="checkbox" name="burrito">
+                    </div>
+                    <div><label for="chicke">🍗 : </label>
+                        <input type="checkbox" name="chicke">
+                    </div>
+                    <div><label for="fish">🐟 : </label>
+                        <input type="checkbox" name="fish">
+                    </div>
+                </div>
+                <div class="menu__item-container"><span>History: </span><span>1,2,3,4,5,6,7,8,9,10</span></div>
+                <hr class="menu__item__divider">
+                <button type="submit" class="menu__item__save-button">Save</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>a practice project by Michael Wong</p>
+    </footer>
+</body>
