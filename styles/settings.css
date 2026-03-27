@@ -119,12 +119,12 @@
     padding: 0 .5rem 0 .5rem;
 }
 
-.menu__item__divider {
+.menu__divider {
     border: none;
     border-bottom: 1px solid hsl(var(--LIGHT-HSL));
 }
 
-.menu__item__save-button {
+.menu__save-button {
     width: 8rem;
     font-family: serif;
     text-transform: uppercase;

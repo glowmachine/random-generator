@@ -7,9 +7,9 @@
     <title>Random Generator</title>
     <meta name="description" content="A simple webapp for when you need a random...">
     <meta name="author" content="Michael Wong">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="settings.css">
-    <script defer src="settings.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/settings.css">
+    <script defer src="scripts/settings.js"></script>
 </head>
 
 <body>
@@ -25,63 +25,57 @@
                 <a href="/" class="menu__title-link">↱</a>
             </div>
             <nav class="menu__tab-area">
-                <input type="radio" name="tab" id="radio-numbers" class="menu__tab-radio" value="menuNumber">
-                <label for="radio-numbers" class="menu__tab-label">Numbers</label>
-                <!-- <input type="radio" name="tab" id="radio-colors" class="menu__tab-radio" value="menuColor">
-                <label for="radio-colors" class="menu__tab-label">Colors</label> -->
-                <input type="radio" name="tab" id="radio-food" class="menu__tab-radio" value="menuFood">
+                <input type="radio" name="tab" id="radio-number" class="menu__tab-radio" value="number">
+                <label for="radio-number" class="menu__tab-label">Numbers</label>
+                <input type="radio" name="tab" id="radio-food" class="menu__tab-radio" value="food">
                 <label for="radio-food" class="menu__tab-label">Food</label>
             </nav>
-            <form action="" id="menuNumber" class="menu__content">
+            <form id="number" class="menu__content">
                 <div class="menu__options">
                     <div class="menu__item-container"><label for="min">From: </label>
-                        <input type="number" class="range__min" name="min" value="1">
+                        <input type="number" class="number__min" id="min" value="1">
                     </div>
                     <div class="menu__item-container"><label for="max">To: </label>
-                        <input type="number" class="range__max" name="max" value="10">
+                        <input type="number" class="number__max" id="max" value="10">
                     </div>
                     <div class="menu__item-container">
                         <label for="inclusive">Inclusive: </label>
-                        <input type="range" name="inclusive" min="0" max="1">
+                        <input type="range" class="number__inclusive" id="inclusive" min="0" max="1" value="1">
                     </div>
                     <div class="menu__item-container"><span>History: </span><span>1,2,3,4,5,6,7,8,9,10</span></div>
                 </div>
-                <hr class="menu__item__divider">
-                <button type="submit" class="menu__item__save-button">Save</button>
+                <hr class="menu__divider">
+                <!-- <button class="menu__save-button">Save</button> -->
             </form>
-            </div>
-            <!-- <section id="menuColor" class="menu__content">
-            </section> -->
-            <form action="" id="menuFood" class="menu__content">
+            <form id="food" class="menu__content">
                 <div class="menu__options--grid">
                     <div><label for="rice">🍚 : </label>
-                        <input type="checkbox" name="rice">
+                        <input type="checkbox" id="rice">
                     </div>
                     <div><label for="soup">🍜 : </label>
-                        <input type="checkbox" name="soup">
+                        <input type="checkbox" id="soup">
                     </div>
                     <div><label for="sushi">🍣 : </label>
-                        <input type="checkbox" name="sushi">
+                        <input type="checkbox" id="sushi">
                     </div>
                     <div><label for="pizza">🍕 : </label>
-                        <input type="checkbox" name="pizza">
+                        <input type="checkbox" id="pizza">
                     </div>
                     <div><label for="burger">🍔 : </label>
-                        <input type="checkbox" name="burger">
+                        <input type="checkbox" id="burger">
                     </div>
                     <div><label for="burrito">🌯 : </label>
-                        <input type="checkbox" name="burrito">
+                        <input type="checkbox" id="burrito">
                     </div>
                     <div><label for="chicke">🍗 : </label>
-                        <input type="checkbox" name="chicke">
+                        <input type="checkbox" id="chicke">
                     </div>
                     <div><label for="fish">🐟 : </label>
-                        <input type="checkbox" name="fish">
+                        <input type="checkbox" id="fish">
                     </div>
                 </div>
                 <div class="menu__item-container"><span>History: </span><span>1,2,3,4,5,6,7,8,9,10</span></div>
                 <hr class="menu__item__divider">
-                <button type="submit" class="menu__item__save-button">Save</button>
             </form>
         </section>
     </main>
