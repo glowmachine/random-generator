@@ -60,7 +60,14 @@ menu {
 /* CLASSES ======================================================= */
 
 .menu-icon {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    aspect-ratio: 1/1;
+    height: 3rem;
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+    background-color: black;
 }
 
 .random {
