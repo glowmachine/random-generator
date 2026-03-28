@@ -1,4 +1,4 @@
-import { save, loadSettings } from './save.js';
+import { save, loadSettings, saveSettings } from './save.js';
 
 class RandomNumberGenerator {
     constructor() {

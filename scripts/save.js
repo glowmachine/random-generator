@@ -14,6 +14,10 @@ export function loadSettings() {
     loadNumberSettings(data);
 }
 
+export function saveSettings() {
+    localStorage.setItem('rngSettings', JSON.stringify(save));
+}
+
 function loadNumberSettings(data) {
     if (data) {
         save.lastVisited = data.lastVisited;

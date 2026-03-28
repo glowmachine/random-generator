@@ -1,4 +1,4 @@
-import { save, loadSettings } from './save.js';
+import { save, loadSettings, saveSettings } from './save.js';
 
 function menuTabListener() {
     const tabs = document.querySelectorAll('.menu__tab-radio');
@@ -15,10 +15,6 @@ function menuTabListener() {
         });
     });
     goToTab(save.lastVisited);
-}
-
-function saveSettings() {
-    localStorage.setItem('rngSettings', JSON.stringify(save));
 }
 
 function setNumberSettings() {
