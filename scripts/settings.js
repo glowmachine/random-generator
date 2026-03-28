@@ -29,6 +29,9 @@ function setNumberSettings() {
             input.value = save.number[key];
         }
     });
+    //clamp range for number input
+    document.querySelector('.number__min').max = save.number.max;
+    document.querySelector('.number__max').min = save.number.min;
 }
 
 function goToPage() {
@@ -45,10 +48,12 @@ function goToTab() {
 function menuNumberSettingsListener() {
     document.querySelector('.number__min').addEventListener('change', (e) => {
         const minValue = Number(e.target.value);
+        document.querySelector('.number__max').min = minValue;
         save.number.min = minValue;
     });
     document.querySelector('.number__max').addEventListener('change', (e) => {
         const maxValue = Number(e.target.value);
+        document.querySelector('.number__min').max = maxValue;
         save.number.max = maxValue;
     });
     document.querySelector('.number__inclusive').addEventListener('change', (e) => {
