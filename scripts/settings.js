@@ -7,17 +7,9 @@ function setFoodSettings() {
         console.log(typeof key, key);
         let html;
         if (key === 'foodHistory') {
-            html = `
-                <div class="menu__item-container">
-                    <span>History: </span><span id="foodHistory" class="food__history"></span>
-                </div>
-            `;
+            document.getElementById('foodHistory').textContent = save.food.foodHistory.join(', ');
         } else if (key === 'foodCounter') {
-            html = `
-                <div class="menu__item-container">
-                    <span>Counter: </span><span id="foodCounter"></span>
-                </div>
-            `;
+            document.getElementById('foodCounter').textContent = save.food.foodCounter;
         } else {
             html = `
                 <div>
@@ -25,13 +17,11 @@ function setFoodSettings() {
                     <input type="checkbox" id="${key}" ${value.checked ? 'checked' : ""}>
                 </div>
             `;
+            let foodOptions = document.getElementById('food').querySelector('.menu__options--grid');
+            foodOptions.insertAdjacentHTML('beforeend', html);
         }
-        let foodOptions = document.getElementById('food').querySelector('.menu__options--grid');
-        foodOptions.insertAdjacentHTML('beforeend', html);
     });
 
-    document.getElementById('foodHistory').textContent = save.food.foodHistory.join(', ');
-    document.getElementById('foodCounter').textContent = save.food.foodCounter;
 }
 
 function menuFoodSettingsListener() {
