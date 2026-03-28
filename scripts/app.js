@@ -12,9 +12,17 @@ class RandomNumberGenerator {
     }
 
     roll(low, high) {
-        this.element.textContent = save.number.numberInc ?
-            Math.floor(Math.random() * (high - low + 1)) + low :
-            Math.floor(Math.random() * (high - low - 1)) + (low + 1);
+        let result =
+            this.element.textContent = save.number.numberInc ?
+                Math.floor(Math.random() * (high - low + 1)) + low :
+                Math.floor(Math.random() * (high - low - 1)) + (low + 1);
+        this.addToHistory(result);
+        saveSettings();
+    }
+
+    addToHistory(result) {
+        save.number.numberHistory.push(Number(result));
+        save.number.numberHistory = save.number.numberHistory.slice(-10);
     }
 }
 

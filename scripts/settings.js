@@ -20,9 +20,12 @@ function menuTabListener() {
 function setNumberSettings() {
     //turn the save data into an array and find the matching id for each key
     Object.keys(save.number).forEach((key) => {
-        const input = document.getElementById(key);
-        if (input) {
-            input.value = save.number[key];
+        const element = document.getElementById(key);
+        if (element.tagName === 'INPUT') {
+            element.value = save.number[key];
+        }
+        if (element.id === 'numberHistory') {
+            element.textContent = save.number[key].join(', ');
         }
     });
     //clamp range for number input
@@ -70,9 +73,9 @@ function updateSettingsListener() {
 function init() {
     document.addEventListener('DOMContentLoaded', () => {
         loadSettings();
-        setNumberSettings();
-
         menuTabListener();
+
+        setNumberSettings();
         menuNumberSettingsListener();
 
         updateSettingsListener();

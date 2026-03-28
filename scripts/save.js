@@ -5,6 +5,7 @@ export let save = {
         numberMin: 1,
         numberMax: 10,
         numberInc: 1,
+        numberHistory: [],
     },
     food: {}
 };
