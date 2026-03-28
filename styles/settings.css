@@ -142,11 +142,17 @@
     width: 3rem;
 }
 
-.number__history {
-    background: linear-gradient(to right, transparent, hsl(var(--LIGHTER-HSL)));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.menu__history {
+    position: relative;
+}
+
+.menu__history::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 15rem;
+    right: 0;
+    background-image: linear-gradient(to right, hsl(var(--LIGHT-HSL)), transparent);
 }
 
 /* ALL THIS FOR A SLIDER BC BROWSERS JUST CANNOT ================= */
