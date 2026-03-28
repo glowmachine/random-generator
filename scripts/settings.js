@@ -4,7 +4,6 @@ import { save, loadSettings, saveSettings } from './save.js';
 function setFoodSettings() {
     //for each possible food option, make an element
     Object.entries(save.food).forEach(([key, value]) => {
-        console.log(typeof key, key);
         let html;
         if (key === 'foodHistory') {
             document.getElementById('foodHistory').textContent = save.food.foodHistory.join(', ');

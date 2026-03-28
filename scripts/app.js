@@ -86,16 +86,16 @@ function alternateIcon() {
 function init() {
     document.addEventListener('DOMContentLoaded', (e) => {
         loadSettings();
-        const location = window.location.pathname;
+        const path = window.location.pathname.split('/');
+        const currentPage = path[path.length - 1];
 
-        if (location === '/' || location === '/index.html') {
-            //if index.html, redirect to last saved random generator
-            window.location.replace(`${save.lastVisited}.html`);
+        if (currentPage === '' || currentPage === 'index.html') {
+            window.location.replace(`./${save.lastVisited}.html`);
         }
-        else if (location === '/number.html') {
+        else if (currentPage === 'number.html') {
             const randomNumberGenerator = new RandomNumberGenerator();
         }
-        else if (location === '/food.html') {
+        else if (currentPage === 'food.html') {
             const randomFoodGenerator = new RandomFoodGenerator();
         }
     })
