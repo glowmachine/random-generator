@@ -1,21 +1,31 @@
 import { save, loadSettings, saveSettings } from './save.js';
 
-function menuTabListener() {
-    const tabs = document.querySelectorAll('.menu__tab-radio');
-    //add a listener for every day
-    tabs.forEach((tab) => {
-        tab.addEventListener('change', (e) => {
-            //hide all menu contents whenever a new tab is selected
-            document.querySelectorAll('.menu__content').forEach((menuContent) => {
-                menuContent.classList.remove('active');
-            });
-            //reveal the menu content associated with the selected tab
-            document.getElementById(e.target.value).classList.add('active');
-            save.lastVisited = e.target.value;
+// FOOD FUNCTIONS ================================================
+function setFoodSettings() {
+    //for each possible food option, make an element
+    Object.entries(save.food).forEach(([key, value]) => {
+        const html = `
+                        <div>
+                            <label for="${key}">${value.label} : </label>
+                            <input type="checkbox" id="${key}" ${value.checked ? 'checked' : ""}>
+                        </div>
+        `;
+        let foodOptions = document.getElementById('food').querySelector('.menu__options--grid');
+        foodOptions.insertAdjacentHTML('beforeend', html);
+    })
+}
+
+function menuFoodSettingsListener() {
+    let foodOptions = document.getElementById('food').querySelectorAll('input');
+    //for every input, add an event listener that saves the option's status to the save
+    foodOptions.forEach((option) => {
+        option.addEventListener('change', (e) => {
+            save.food[option.id].checked = option.checked;
         });
     });
-    goToTab(save.lastVisited);
 }
+
+// NUMBER FUNCTIONS ==============================================
 
 function setNumberSettings() {
     //turn the save data into an array and find the matching id for each key
@@ -36,17 +46,6 @@ function setNumberSettings() {
     document.getElementById('numberMax').min = save.number.numberMin;
 }
 
-function goToPage() {
-    window.location.replace(`${save.lastVisited}.html`);
-};
-
-function goToTab() {
-    let prev = save.lastVisited;
-    const tab = document.getElementById(`radio-${prev}`);
-    tab.checked = true;
-    document.getElementById(tab.value).classList.add('active');
-};
-
 function menuNumberSettingsListener() {
     document.getElementById('numberMin').addEventListener('change', (e) => {
         const minValue = Number(e.target.value);
@@ -63,6 +62,25 @@ function menuNumberSettingsListener() {
     });
 };
 
+// GENERAL FUNCTIONS =============================================
+
+function menuTabListener() {
+    const tabs = document.querySelectorAll('.menu__tab-radio');
+    //add a listener for every day
+    tabs.forEach((tab) => {
+        tab.addEventListener('change', (e) => {
+            //hide all menu contents whenever a new tab is selected
+            document.querySelectorAll('.menu__content').forEach((menuContent) => {
+                menuContent.classList.remove('active');
+            });
+            //reveal the menu content associated with the selected tab
+            document.getElementById(e.target.value).classList.add('active');
+            save.lastVisited = e.target.value;
+        });
+    });
+    goToTab(save.lastVisited);
+}
+
 function updateSettingsListener() {
     const settingsWindow = document.querySelector('.menu');
     document.addEventListener('click', (e) => {
@@ -73,6 +91,17 @@ function updateSettingsListener() {
     });
 }
 
+function goToPage() {
+    window.location.replace(`${save.lastVisited}.html`);
+};
+
+function goToTab() {
+    let prev = save.lastVisited;
+    const tab = document.getElementById(`radio-${prev}`);
+    tab.checked = true;
+    document.getElementById(tab.value).classList.add('active');
+};
+
 function init() {
     document.addEventListener('DOMContentLoaded', () => {
         loadSettings();
@@ -80,6 +109,8 @@ function init() {
 
         setNumberSettings();
         menuNumberSettingsListener();
+        setFoodSettings();
+        menuFoodSettingsListener();
 
         updateSettingsListener();
     });

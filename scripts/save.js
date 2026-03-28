@@ -8,7 +8,16 @@ export let save = {
         numberHistory: [],
         numberCounter: 0,
     },
-    food: {}
+    food: {
+        foodRice: { checked: true, label: '🍚' },
+        foodSoup: { checked: true, label: '🍜' },
+        foodSushi: { checked: true, label: '🍣' },
+        foodPizza: { checked: true, label: '🍕' },
+        foodBurger: { checked: true, label: '🍔' },
+        foodBurrito: { checked: true, label: '🌯' },
+        foodChicken: { checked: true, label: '🍗' },
+        foodFish: { checked: true, label: '🐟' },
+    }
 };
 
 export function loadSettings() {
@@ -24,6 +33,7 @@ function loadNumberSettings(data) {
     if (data) {
         save.lastVisited = data.lastVisited;
         save.number = data.number;
+        save.food = data.food;
         return save;
     }
     else
