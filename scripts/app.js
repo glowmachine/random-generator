@@ -17,12 +17,17 @@ class RandomNumberGenerator {
                 Math.floor(Math.random() * (high - low + 1)) + low :
                 Math.floor(Math.random() * (high - low - 1)) + (low + 1);
         this.addToHistory(result);
+        this.incrementCounter();
         saveSettings();
     }
 
     addToHistory(result) {
         save.number.numberHistory.push(Number(result));
         save.number.numberHistory = save.number.numberHistory.slice(-10);
+    }
+
+    incrementCounter() {
+        save.number.numberCounter++;
     }
 }
 

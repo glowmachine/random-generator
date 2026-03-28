@@ -27,6 +27,9 @@ function setNumberSettings() {
         if (element.id === 'numberHistory') {
             element.textContent = save.number[key].join(', ');
         }
+        if (element.id === 'numberCounter') {
+            element.textContent = save.number.numberCounter;
+        }
     });
     //clamp range for number input
     document.getElementById('numberMin').max = save.number.numberMax;
