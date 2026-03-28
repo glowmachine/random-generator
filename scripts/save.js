@@ -17,6 +17,8 @@ export let save = {
         foodBurrito: { checked: true, label: '🌯' },
         foodChicken: { checked: true, label: '🍗' },
         foodFish: { checked: true, label: '🐟' },
+        foodHistory: [],
+        foodCounter: 0,
     }
 };
 

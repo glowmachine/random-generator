@@ -48,7 +48,10 @@ class RandomFoodGenerator {
     roll(selectedFoods) {
         const randomFood = selectedFoods[Math.floor(Math.random() * selectedFoods.length)];
         //use the random key to select it from save.food and get its label
-        this.element.textContent = save.food[randomFood].label;
+        const result = save.food[randomFood].label;
+        this.element.textContent = result;
+        this.addToHistory(result);
+        this.incrementCounter();
         saveSettings();
     }
 
@@ -60,6 +63,15 @@ class RandomFoodGenerator {
                 selected.push(option);
         });
         return selected;
+    }
+
+    addToHistory(result) {
+        save.food.foodHistory.push(result);
+        save.food.foodHistory = save.food.foodHistory.slice(-10);
+    }
+
+    incrementCounter() {
+        save.food.foodCounter++;
     }
 }
 
