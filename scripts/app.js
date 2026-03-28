@@ -8,6 +8,7 @@ class RandomNumberGenerator {
         this.element.addEventListener('pointerdown', (e) => {
             e.preventDefault();
             this.roll(save.number.numberMin, save.number.numberMax);
+            alternateIcon();
         });
     }
 
@@ -29,6 +30,16 @@ class RandomNumberGenerator {
     incrementCounter() {
         save.number.numberCounter++;
     }
+}
+
+function alternateIcon() {
+    const configIcon = document.querySelector('.config__icon');
+    if (configIcon.classList.contains('config__icon--alt'))
+        configIcon.classList.remove('config__icon--alt');
+    else
+        configIcon.classList.add('config__icon--alt');
+
+
 }
 
 function init() {

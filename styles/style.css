@@ -59,15 +59,24 @@ menu {
 
 /* CLASSES ======================================================= */
 
-.menu-icon {
-    /* font-size: 1.5rem; */
+.config__icon {
     position: absolute;
     top: 0;
     right: 0;
     aspect-ratio: 1/1;
     height: 3rem;
     clip-path: polygon(0 0, 100% 100%, 100% 0);
-    background-color: black;
+    background-color: hsl(var(--DARK-HSL));
+}
+
+.config__icon--alt {
+    position: absolute;
+    top: 0;
+    right: 0;
+    aspect-ratio: 1/1;
+    height: 3rem;
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+    background-color: hsl(var(--LIGHT-HSL));
 }
 
 .random {
