@@ -4,18 +4,18 @@ class RandomNumberGenerator {
     constructor() {
         loadSettings();
         this.element = document.querySelector('.random');
-        this.roll(save.number.min, save.number.max);
+        this.roll(save.number.numberMin, save.number.numberMax);
 
         this.element.addEventListener('pointerdown', (e) => {
             e.preventDefault();
-            this.roll(save.number.min, save.number.max);
+            this.roll(save.number.numberMin, save.number.numberMax);
         });
     }
 
-    roll(min, max) {
-        this.element.textContent = save.number.inclusive ?
-            Math.floor(Math.random() * (max - min + 1)) + min :
-            Math.floor(Math.random() * (max - min - 1)) + (min + 1);
+    roll(low, high) {
+        this.element.textContent = save.number.numberInc ?
+            Math.floor(Math.random() * (high - low + 1)) + low :
+            Math.floor(Math.random() * (high - low - 1)) + (low + 1);
     }
 }
 

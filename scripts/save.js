@@ -2,9 +2,9 @@ export let save = {
     //default values
     lastVisited: 'number',
     number: {
-        min: 1,
-        max: 10,
-        inclusive: 1,
+        numberMin: 1,
+        numberMax: 10,
+        numberInc: 1,
     },
     food: {}
 };

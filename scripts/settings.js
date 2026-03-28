@@ -22,7 +22,7 @@ function saveSettings() {
 }
 
 function setNumberSettings() {
-    //turn the object into an array and find the matching id for each key
+    //turn the save data into an array and find the matching id for each key
     Object.keys(save.number).forEach((key) => {
         const input = document.getElementById(key);
         if (input) {
@@ -30,8 +30,8 @@ function setNumberSettings() {
         }
     });
     //clamp range for number input
-    document.querySelector('.number__min').max = save.number.max;
-    document.querySelector('.number__max').min = save.number.min;
+    document.getElementById('numberMin').max = save.number.numberMax;
+    document.getElementById('numberMax').min = save.number.numberMin;
 }
 
 function goToPage() {
@@ -46,18 +46,18 @@ function goToTab() {
 };
 
 function menuNumberSettingsListener() {
-    document.querySelector('.number__min').addEventListener('change', (e) => {
+    document.getElementById('numberMin').addEventListener('change', (e) => {
         const minValue = Number(e.target.value);
-        document.querySelector('.number__max').min = minValue;
-        save.number.min = minValue;
+        document.getElementById('numberMax').min = minValue;
+        save.number.numberMin = minValue;
     });
-    document.querySelector('.number__max').addEventListener('change', (e) => {
+    document.getElementById('numberMax').addEventListener('change', (e) => {
         const maxValue = Number(e.target.value);
-        document.querySelector('.number__min').max = maxValue;
-        save.number.max = maxValue;
+        document.getElementById('numberMin').max = maxValue;
+        save.number.numberMax = maxValue;
     });
-    document.querySelector('.number__inclusive').addEventListener('change', (e) => {
-        save.number.inclusive = Number(e.target.value);
+    document.getElementById('numberInc').addEventListener('change', (e) => {
+        save.number.numberInc = Number(e.target.value);
     });
 };
 
