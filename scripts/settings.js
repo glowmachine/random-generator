@@ -44,13 +44,15 @@ function goToTab() {
 
 function menuNumberSettingsListener() {
     document.querySelector('.number__min').addEventListener('change', (e) => {
-        save.number.min = e.target.value;
+        const minValue = Number(e.target.value);
+        save.number.min = minValue;
     });
     document.querySelector('.number__max').addEventListener('change', (e) => {
-        save.number.max = e.target.value;
+        const maxValue = Number(e.target.value);
+        save.number.max = maxValue;
     });
     document.querySelector('.number__inclusive').addEventListener('change', (e) => {
-        save.number.inclusive = e.target.value;
+        save.number.inclusive = Number(e.target.value);
     });
 };
 

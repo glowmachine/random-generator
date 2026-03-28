@@ -17,11 +17,7 @@ export function loadSettings() {
 function loadNumberSettings(data) {
     if (data) {
         save.lastVisited = data.lastVisited;
-        //turn parsed json strings back into numbers 
-        // save.number = data.number;
-        for (let key in save.number) {
-            save.number[key] = Number(data.number[key]);
-        }
+        save.number = data.number;
         return save;
     }
     else
