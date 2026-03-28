@@ -1,7 +1,6 @@
 import { save, loadSettings } from './save.js';
 
 class RandomNumberGenerator {
-
     constructor() {
         loadSettings();
         this.element = document.querySelector('.random');
@@ -20,4 +19,18 @@ class RandomNumberGenerator {
     }
 }
 
-const randomNumberGenerator = new RandomNumberGenerator();
+function init() {
+    document.addEventListener('DOMContentLoaded', (e) => {
+        loadSettings();
+        const location = window.location.pathname;
+
+        if (location === '/' || location === '/index.html') {
+            window.location.replace(`${save.lastVisited}.html`);
+        }
+        else {
+            const randomNumberGenerator = new RandomNumberGenerator();
+        }
+    })
+}
+
+init();
