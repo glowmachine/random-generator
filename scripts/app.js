@@ -2,7 +2,6 @@ import { save, loadSettings } from './save.js';
 
 class RandomNumberGenerator {
     constructor() {
-        loadSettings();
         this.element = document.querySelector('.random');
         this.roll(save.number.numberMin, save.number.numberMax);
 
