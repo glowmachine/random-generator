@@ -1,8 +1,8 @@
-import { save, loadSettings, saveSettings } from './save.js';
+import { save, loadSettings, saveSettings, resetSettings } from './save.js';
 
 // FOOD FUNCTIONS ================================================
 function setFoodSettings() {
-    //for each possible food option, make an element
+    //for each possible food option, set selected/unselected
     Object.entries(save.food).forEach(([key, value]) => {
         let html;
         if (key === 'foodHistory') {
@@ -10,23 +10,26 @@ function setFoodSettings() {
         } else if (key === 'foodCounter') {
             document.getElementById('foodCounter').textContent = save.food.foodCounter;
         } else {
+            document.getElementById(key).checked = value.checked;
+        }
+    });
+}
+
+function drawFoodSettings() {
+    //for each possible food option, make an element
+    Object.entries(save.food).forEach(([key, value]) => {
+        let html;
+        if (key !== 'foodHistory' && key !== 'foodCounter') {
             html = `
                 <div>
-                    <input type="checkbox" id="${key}"${value.checked ? ' checked' : ""}>
+                    <input type="checkbox" id="${key}">
                     <label for="${key}">${value.label}</label>
                 </div>
             `;
-            // html = `
-            //     <div>
-            //         <label for="${key}">${value.label} : </label>
-            //         <input type="checkbox" id="${key}" ${value.checked ? 'checked' : ""}>
-            //     </div>
-            // `;
             let foodOptions = document.getElementById('food').querySelector('.menu__options--grid');
             foodOptions.insertAdjacentHTML('beforeend', html);
         }
     });
-
 }
 
 function menuFoodSettingsListener() {
@@ -105,6 +108,18 @@ function updateSettingsListener() {
     });
 }
 
+function resetButtonListener() {
+    document.querySelector('.menu__reset-button').addEventListener('click', (e) => {
+        const tabs = document.querySelectorAll('.menu__tab-radio');
+        tabs.forEach((tab) => {
+            if (tab.checked)
+                resetSettings(tab.value);
+        });
+        setNumberSettings();
+        setFoodSettings();
+    });
+}
+
 function goToPage() {
     window.location.replace(`${save.lastVisited}.html`);
 };
@@ -120,9 +135,11 @@ function init() {
     document.addEventListener('DOMContentLoaded', () => {
         loadSettings();
         menuTabListener();
+        resetButtonListener();
 
         setNumberSettings();
         menuNumberSettingsListener();
+        drawFoodSettings();
         setFoodSettings();
         menuFoodSettingsListener();
 

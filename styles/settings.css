@@ -128,7 +128,7 @@
     border-bottom: 1px solid hsl(var(--LIGHT-HSL));
 }
 
-.menu__clear-button {
+.menu__reset-button {
     width: 8rem;
     font-family: serif;
     text-transform: uppercase;
