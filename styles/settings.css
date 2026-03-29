@@ -23,13 +23,14 @@
 .menu__title-area {
     margin: .75rem 0 1.5rem 0;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: .5rem;
 }
 
 .menu__title-container {
     height: 2.5rem;
-    width: 100%;
+    width: 90%;
     background-color: hsl(var(--LIGHT-HSL));
     display: flex;
     flex-direction: column;
@@ -44,11 +45,12 @@
 }
 
 .menu__title-link {
-    /* background-color: red; */
+    width: 10%;
     color: hsl(var(--LIGHT-HSL));
     font-size: 2rem;
     font-weight: 900;
-    margin-top: 0;
+    line-height: 1;
+    transform: rotate(180deg);
     text-align: right;
     text-decoration: none;
 }
