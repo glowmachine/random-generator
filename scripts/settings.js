@@ -12,10 +12,16 @@ function setFoodSettings() {
         } else {
             html = `
                 <div>
-                    <label for="${key}">${value.label} : </label>
-                    <input type="checkbox" id="${key}" ${value.checked ? 'checked' : ""}>
+                    <input type="checkbox" id="${key}"${value.checked ? ' checked' : ""}>
+                    <label for="${key}">${value.label}</label>
                 </div>
             `;
+            // html = `
+            //     <div>
+            //         <label for="${key}">${value.label} : </label>
+            //         <input type="checkbox" id="${key}" ${value.checked ? 'checked' : ""}>
+            //     </div>
+            // `;
             let foodOptions = document.getElementById('food').querySelector('.menu__options--grid');
             foodOptions.insertAdjacentHTML('beforeend', html);
         }
