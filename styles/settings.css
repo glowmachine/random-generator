@@ -10,9 +10,9 @@
     position: absolute;
     inset: 0;
     margin: auto;
-    height: 76%;
+    height: min(475px, 75%);
     transform: translateY(-.4rem);
-    width: 90%;
+    width: min(300px, 100%);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -128,7 +128,7 @@
     border-bottom: 1px solid hsl(var(--LIGHT-HSL));
 }
 
-.menu__save-button {
+.menu__clear-button {
     width: 8rem;
     font-family: serif;
     text-transform: uppercase;
@@ -146,15 +146,16 @@
 
 .menu__history {
     position: relative;
+    white-space: nowrap;
+    overflow-x: hidden;
 }
 
 .menu__history::before {
     content: "";
     position: absolute;
     height: 100%;
-    width: 15rem;
-    right: 0;
-    background-image: linear-gradient(to right, hsl(var(--LIGHT-HSL)), transparent);
+    width: 100%;
+    background-image: linear-gradient(to right, hsl(var(--LIGHT-HSL)), transparent 50%);
 }
 
 .menu__options--grid div {

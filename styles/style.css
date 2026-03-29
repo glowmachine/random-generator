@@ -86,8 +86,8 @@ menu {
 
     border: none;
     background-color: transparent;
-
-    font-size: clamp(15rem, min(50vw, 75vh), 30rem);
+    color: hsl(var(--DARK-HSL));
+    font-size: min(80vw, 15rem);
     max-width: 100%;
     line-height: 1;
     cursor: pointer;
