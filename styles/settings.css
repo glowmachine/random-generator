@@ -156,26 +156,26 @@
 }
 
 /* ALL THIS FOR A SLIDER BC BROWSERS JUST CANNOT ================= */
-.number__inclusive {
+.number__inclusivity {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
     height: 6px;
 }
 
-.number__inclusive::-webkit-slider-runnable-track {
+.number__inclusivity::-webkit-slider-runnable-track {
     height: 100%;
     background: hsl(var(--LIGHTER-HSL));
     border-radius: 3px;
 }
 
-.number__inclusive::-moz-range-track {
+.number__inclusivity::-moz-range-track {
     height: 100%;
     background: hsl(var(--LIGHTER-HSL));
     border-radius: 3px;
 }
 
-.number__inclusive::-webkit-slider-thumb {
+.number__inclusivity::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 1.25rem;
@@ -186,7 +186,7 @@
     margin-top: -.45rem;
 }
 
-.number__inclusive::-moz-range-thumb {
+.number__inclusivity::-moz-range-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 1.25rem;
@@ -196,12 +196,12 @@
     border: none;
 }
 
-.number__inclusive::-webkit-slider-thumb:hover,
-.number__inclusive::-webkit-slider-thumb:active {
+.number__inclusivity::-webkit-slider-thumb:hover,
+.number__inclusivity::-webkit-slider-thumb:active {
     border: 2px solid hsl(var(--LIGHTER-HSL));
 }
 
-.number__inclusive::-moz-range-thumb:hover,
-.number__inclusive::-moz-range-thumb:active {
+.numberInc::-moz-range-thumb:hover,
+.numberInc::-moz-range-thumb:active {
     border: 2px solid hsl(var(--LIGHTER-HSL));
 }
