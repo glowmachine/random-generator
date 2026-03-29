@@ -26,6 +26,7 @@ body {
     justify-content: space-between;
     background-color: hsl(var(--LIGHTER-HSL));
     color: hsl(var(--DARKER-HSL));
+    overflow: hidden;
 }
 
 /* SEMANTIC TAGS ================================================= */
@@ -59,24 +60,16 @@ menu {
 
 /* CLASSES ======================================================= */
 
-.config__icon {
-    position: absolute;
-    top: 0;
-    right: 0;
+.settings__link {
+    position: fixed;
+    height: 4rem;
     aspect-ratio: 1/1;
-    height: 3rem;
-    clip-path: polygon(0 0, 100% 100%, 100% 0);
-    background-color: hsl(var(--DARK-HSL));
+    z-index: 99;
 }
 
-.config__icon--alt {
-    position: absolute;
-    top: 0;
-    right: 0;
-    aspect-ratio: 1/1;
-    height: 3rem;
-    clip-path: polygon(0 0, 100% 100%, 100% 0);
-    background-color: hsl(var(--LIGHT-HSL));
+.settings__link-icon {
+    height: 100%;
+    width: 100%;
 }
 
 .random {

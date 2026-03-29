@@ -8,7 +8,7 @@ class RandomNumberGenerator {
         this.element.addEventListener('pointerdown', (e) => {
             e.preventDefault();
             this.roll(save.number.numberMin, save.number.numberMax);
-            alternateIcon();
+            moveMenuIcon();
         });
     }
 
@@ -41,7 +41,7 @@ class RandomFoodGenerator {
         this.element.addEventListener('pointerdown', (e) => {
             e.preventDefault();
             this.roll(this.foodList);
-            alternateIcon();
+            moveMenuIcon();
         });
     }
 
@@ -75,12 +75,70 @@ class RandomFoodGenerator {
     }
 }
 
-function alternateIcon() {
-    const configIcon = document.querySelector('.config__icon');
-    if (configIcon.classList.contains('config__icon--alt'))
-        configIcon.classList.remove('config__icon--alt');
-    else
-        configIcon.classList.add('config__icon--alt');
+function moveMenuIcon() {
+    const settingsIcon = document.querySelector('.settings__link-icon');
+    const settingsLink = document.querySelector('.settings__link');
+    const positions = ['top', 'right', 'bottom', 'left', 'corner-tr', 'corner-br', 'corner-bl', 'corner-tl'];
+    const randomPosition = positions[Math.floor(Math.random() * positions.length)];
+
+    let style = "";
+    //set alignment and rotation for top/bottom
+    if (randomPosition === "top") {
+        style += "top: -1.1rem;";
+        style += "transform: rotate(-45deg);"
+    }
+    else if (randomPosition === 'corner-tr' || randomPosition === 'corner-tl') {
+        style += "top: 0;";
+    }
+    else if (randomPosition === "bottom") {
+        style += "bottom: -1.1rem;"
+        style += "transform: rotate(135deg);"
+    }
+    else if (randomPosition === 'corner-br' || randomPosition === 'corner-bl') {
+        style += "bottom: 0;";
+    }
+
+    //set alignment and rotation for right/left
+    if (randomPosition === 'right') {
+        style += "right: -1.1rem;";
+        style += "transform: rotate(45deg);"
+    }
+    if (randomPosition === 'corner-tr' || randomPosition === 'corner-br') {
+        style += "right: 0;";
+    } else if (
+        randomPosition === 'left') {
+        style += "left: -1.1rem;";
+        style += "transform: rotate(-135deg);"
+    } else if (randomPosition === 'corner-tl' || randomPosition === 'corner-bl') {
+        style += "left: 0;";
+    }
+
+    //set rotation for corners, alignment previously set by top/bottom and right/left
+    if (randomPosition === 'corner-tr') {
+        style += "transform: rotate(0deg);"
+    }
+    else if (randomPosition === 'corner-br') {
+        style += "transform: rotate(90deg);"
+    }
+    else if (randomPosition === 'corner-bl') {
+        style += "transform: rotate(180deg);"
+    }
+    else if (randomPosition === 'corner-tl') {
+        style += "transform: rotate(-90deg);"
+    }
+
+    if (!randomPosition.includes('corner')) {
+        if (randomPosition === 'top' || randomPosition === 'bottom') {
+            //offset due to icon dimensions
+            const randomX = Math.floor(Math.random() * (85 + 1));
+            style += `right: ${randomX}%;`
+
+        } else if (randomPosition === 'left' || randomPosition === 'right') {
+            const randomY = Math.floor(Math.random() * (90 + 1));
+            style += `top: ${randomY}%;`
+        }
+    }
+    settingsLink.style.cssText = style;
 }
 
 function init() {
@@ -92,11 +150,14 @@ function init() {
         if (currentPage === '' || currentPage === 'index.html') {
             window.location.replace(`./${save.lastVisited}.html`);
         }
-        else if (currentPage === 'number.html') {
-            const randomNumberGenerator = new RandomNumberGenerator();
-        }
-        else if (currentPage === 'food.html') {
-            const randomFoodGenerator = new RandomFoodGenerator();
+        else {
+            moveMenuIcon();
+            if (currentPage === 'number.html') {
+                const randomNumberGenerator = new RandomNumberGenerator();
+            }
+            else if (currentPage === 'food.html') {
+                const randomFoodGenerator = new RandomFoodGenerator();
+            }
         }
     })
 }
