@@ -18,10 +18,21 @@ class RandomNumberGenerator {
     }
 
     roll(low, high) {
-        let result =
-            this.element.textContent = save.number.numberInc ?
-                Math.floor(Math.random() * (high - low + 1)) + low :
-                Math.floor(Math.random() * (high - low - 1)) + (low + 1);
+        let result;
+        if (save.number.numberInc) {
+            result = Math.floor(Math.random() * (high - low + 1)) + low;
+            this.element.textContent = result;
+        }
+        else {
+            if ((high - low) > 0) {
+                result = Math.floor(Math.random() * (high - low - 1)) + (low + 1);
+                this.element.textContent = result;
+            }
+            else {
+                this.element.textContent = result = '?';
+                return;
+            }
+        }
         this.addToHistory(result);
         this.incrementCounter();
         saveSettings();
@@ -57,6 +68,8 @@ class RandomFoodGenerator {
 
     roll(selectedFoods) {
         const randomFood = selectedFoods[Math.floor(Math.random() * selectedFoods.length)];
+        if (!randomFood)
+            return;
         //use the random key to select it from save.food and get its label
         const result = save.food[randomFood].label;
         this.element.textContent = result;
