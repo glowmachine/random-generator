@@ -37,7 +37,6 @@ body {
     /* background-color: hsl(var(--BACKGROUND-HSL)); */
     background-image: radial-gradient(circle at 90% 5%, hsl(var(--ACCENT-GRADIENT-HSL)), transparent 35%),
         linear-gradient(to bottom, hsl(var(--BACKGROUND-HSL)), hsl(var(--ACCENT-GRADIENT-HSL)) 65%);
-    overflow: hidden;
 }
 
 /* SEMANTIC TAGS ================================================= */
@@ -90,14 +89,24 @@ menu {
     width: 100%;
 }
 
-.random {
+.random__container {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 100%;
+}
 
+.random__button {
     border: none;
     background-color: transparent;
     color: hsl(var(--TEXT-DARK-HSL));
-    font-size: min(80vw, 15rem);
     cursor: pointer;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+.random__text {
+    font-size: min(50vw, 15rem);
 }

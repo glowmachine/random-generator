@@ -2,11 +2,12 @@ import { save, loadSettings, saveSettings } from './save.js';
 
 class RandomNumberGenerator {
     constructor() {
-        this.element = document.querySelector('.random');
+        this.button = document.querySelector('.random__button');
+        this.text = document.querySelector('.random__text');
         this.roll(save.number.numberMin, save.number.numberMax);
 
         ['pointerdown', 'keydown'].forEach((input) => {
-            this.element.addEventListener((input), (e) => {
+            this.button.addEventListener((input), (e) => {
                 e.preventDefault();
                 if (!e.key || e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
@@ -21,21 +22,21 @@ class RandomNumberGenerator {
         let result;
         if (save.number.numberInc) {
             result = Math.floor(Math.random() * (high - low + 1)) + low;
-            this.element.textContent = result;
+            this.text.textContent = `${result}`;
         }
         else {
             if ((high - low) > 0) {
                 result = Math.floor(Math.random() * (high - low - 1)) + (low + 1);
-                this.element.textContent = result;
+                this.text.textContent = `${result}`;
             }
             else {
-                this.element.textContent = result = '?';
                 return;
             }
         }
         this.addToHistory(result);
         this.incrementCounter();
         saveSettings();
+        resizeValue(.8);
     }
 
     addToHistory(result) {
@@ -50,7 +51,7 @@ class RandomNumberGenerator {
 
 class RandomFoodGenerator {
     constructor() {
-        this.element = document.querySelector('.random');
+        this.element = document.querySelector('.random__button');
         this.foodList = this.filterFoods();
         this.roll(this.foodList);
 
@@ -72,10 +73,11 @@ class RandomFoodGenerator {
             return;
         //use the random key to select it from save.food and get its label
         const result = save.food[randomFood].label;
-        this.element.textContent = result;
+        this.element.querySelector('.random__text').textContent = `${result}`;
         this.addToHistory(result);
         this.incrementCounter();
         saveSettings();
+        resizeValue(.8);
     }
 
     filterFoods() {
@@ -164,6 +166,17 @@ function moveMenuIcon() {
     settingsLink.style.cssText = style;
 }
 
+function resizeValue(width = 1) {
+    const container = document.querySelector('.random__container');
+    const button = document.querySelector('.random__button');
+    const text = document.querySelector('.random__text');
+    const scaleX = width * container.clientWidth / text.scrollWidth;
+    const scaleY = width * container.clientHeight / text.scrollHeight;
+    const scale = Math.min(scaleX, scaleY);
+    // button.style.transformOrigin = "center";
+    button.style.transform = `scale(${scale})`;
+}
+
 function init() {
     document.addEventListener('DOMContentLoaded', (e) => {
         loadSettings();
@@ -182,6 +195,8 @@ function init() {
                 const randomFoodGenerator = new RandomFoodGenerator();
             }
         }
+
+        window.addEventListener('resize', resizeValue);
     })
 }
 
