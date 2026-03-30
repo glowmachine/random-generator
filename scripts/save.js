@@ -32,7 +32,7 @@ const defaultValues = {
 export let save = {
     ...defaultValues,
     number: { ...defaultValues.number },
-    food: { ...defaultValues.number },
+    food: { ...defaultValues.food },
 }
 
 export function loadSettings() {
@@ -60,5 +60,5 @@ export function resetSettings(category) {
             console.log('Not an Option');
     }
     saveSettings();
-    loadSettings();
+    // loadSettings();
 }
