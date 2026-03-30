@@ -60,5 +60,4 @@ export function resetSettings(category) {
             console.log('Not an Option');
     }
     saveSettings();
-    // loadSettings();
 }
