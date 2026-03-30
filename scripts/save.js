@@ -1,5 +1,4 @@
-export let save = {
-    //default values
+const defaultValues = {
     lastVisited: 'number',
     number: {
         numberMin: 1,
@@ -9,18 +8,32 @@ export let save = {
         numberCounter: 0,
     },
     food: {
-        foodRice: { checked: true, label: '🍚' },
-        foodSoup: { checked: true, label: '🍜' },
-        foodSushi: { checked: true, label: '🍣' },
         foodPizza: { checked: true, label: '🍕' },
         foodBurger: { checked: true, label: '🍔' },
-        foodBurrito: { checked: true, label: '🌯' },
+        foodRamen: { checked: true, label: '🍜' },
+        foodTaco: { checked: true, label: '🌮' },
+        foodSushi: { checked: true, label: '🍣' },
+        foodPasta: { checked: true, label: '🍝' },
+        foodSandwich: { checked: true, label: '🥪' },
+        foodSalad: { checked: true, label: '🥗' },
         foodChicken: { checked: true, label: '🍗' },
+        foodBurrito: { checked: true, label: '🌯' },
+        foodCurry: { checked: true, label: '🍛' },
+        foodMeat: { checked: true, label: '🥩' },
+        foodSoup: { checked: true, label: '🥣' },
+        foodChinese: { checked: true, label: '🥡' },
+        foodBreakfast: { checked: true, label: '🥞' },
         foodFish: { checked: true, label: '🐟' },
         foodHistory: [],
         foodCounter: 0,
     }
 };
+
+export let save = {
+    ...defaultValues,
+    number: { ...defaultValues.number },
+    food: { ...defaultValues.number },
+}
 
 export function loadSettings() {
     const data = JSON.parse(localStorage.getItem('rngSettings'));
@@ -38,27 +51,10 @@ export function saveSettings() {
 export function resetSettings(category) {
     switch (category) {
         case 'number':
-            save.number = {
-                numberMin: 1,
-                numberMax: 10,
-                numberInc: 1,
-                numberHistory: [],
-                numberCounter: 0,
-            }
+            save.number = { ...defaultValues.number };
             break;
         case 'food':
-            save.food = {
-                foodRice: { checked: true, label: '🍚' },
-                foodSoup: { checked: true, label: '🍜' },
-                foodSushi: { checked: true, label: '🍣' },
-                foodPizza: { checked: true, label: '🍕' },
-                foodBurger: { checked: true, label: '🍔' },
-                foodBurrito: { checked: true, label: '🌯' },
-                foodChicken: { checked: true, label: '🍗' },
-                foodFish: { checked: true, label: '🐟' },
-                foodHistory: [],
-                foodCounter: 0,
-            }
+            save.food = { ...defaultValues.food };
             break;
         default:
             console.log('Not an Option');
