@@ -84,33 +84,33 @@ function moveMenuIcon() {
     let style = "";
     //set alignment and rotation for top/bottom
     if (randomPosition === "top") {
-        style += "top: -1.1rem;";
+        style += "top: -.25rem;";
         style += "transform: rotate(-45deg);"
     }
     else if (randomPosition === 'corner-tr' || randomPosition === 'corner-tl') {
-        style += "top: 0;";
+        style += "top: -1px;";
     }
     else if (randomPosition === "bottom") {
-        style += "bottom: -1.1rem;"
+        style += "bottom: -.25rem;"
         style += "transform: rotate(135deg);"
     }
     else if (randomPosition === 'corner-br' || randomPosition === 'corner-bl') {
-        style += "bottom: 0;";
+        style += "bottom: -1px;";
     }
 
     //set alignment and rotation for right/left
     if (randomPosition === 'right') {
-        style += "right: -1.1rem;";
+        style += "right: -.25rem;";
         style += "transform: rotate(45deg);"
     }
     if (randomPosition === 'corner-tr' || randomPosition === 'corner-br') {
-        style += "right: 0;";
+        style += "right: -1px;";
     } else if (
         randomPosition === 'left') {
-        style += "left: -1.1rem;";
+        style += "left: -.25rem;";
         style += "transform: rotate(-135deg);"
     } else if (randomPosition === 'corner-tl' || randomPosition === 'corner-bl') {
-        style += "left: 0;";
+        style += "left: -1px;";
     }
 
     //set rotation for corners, alignment previously set by top/bottom and right/left
