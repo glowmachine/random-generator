@@ -25,7 +25,7 @@ class RandomNumberGenerator {
             this.text.textContent = `${result}`;
         }
         else {
-            if ((high - low) > 0) {
+            if ((high - low) > 1) {
                 result = Math.floor(Math.random() * (high - low - 1)) + (low + 1);
                 this.text.textContent = `${result}`;
             }
