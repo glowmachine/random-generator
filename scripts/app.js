@@ -5,10 +5,15 @@ class RandomNumberGenerator {
         this.element = document.querySelector('.random');
         this.roll(save.number.numberMin, save.number.numberMax);
 
-        this.element.addEventListener('pointerdown', (e) => {
-            e.preventDefault();
-            this.roll(save.number.numberMin, save.number.numberMax);
-            moveMenuIcon();
+        ['pointerdown', 'keydown'].forEach((input) => {
+            this.element.addEventListener((input), (e) => {
+                e.preventDefault();
+                if (!e.key || e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    this.roll(save.number.numberMin, save.number.numberMax);
+                    moveMenuIcon();
+                }
+            });
         });
     }
 
@@ -38,10 +43,15 @@ class RandomFoodGenerator {
         this.foodList = this.filterFoods();
         this.roll(this.foodList);
 
-        this.element.addEventListener('pointerdown', (e) => {
-            e.preventDefault();
-            this.roll(this.foodList);
-            moveMenuIcon();
+        ['pointerdown', 'keydown'].forEach((input) => {
+            this.element.addEventListener((input), (e) => {
+                e.preventDefault();
+                if (!e.key || e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    this.roll(this.foodList);
+                    moveMenuIcon();
+                }
+            });
         });
     }
 
