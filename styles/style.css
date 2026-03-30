@@ -33,6 +33,8 @@ body {
 
 header {
     margin: 1rem;
+    font-size: clamp(.5rem, 4vw, 1rem);
+    white-space: nowrap;
 }
 
 main {
@@ -50,6 +52,7 @@ main {
 
 footer {
     margin: 1rem;
+    font-size: clamp(.5rem, 4vw, 1rem);
 }
 
 menu {
@@ -81,14 +84,13 @@ menu {
     background-color: transparent;
     color: hsl(var(--DARK-HSL));
     font-size: min(80vw, 15rem);
-    max-width: 100%;
-    line-height: 1;
     cursor: pointer;
 
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-drag: none;
 }

@@ -29,8 +29,8 @@
 }
 
 .menu__title-container {
+    flex: 1;
     height: 2.5rem;
-    width: 90%;
     background-color: hsl(var(--LIGHT-HSL));
     display: flex;
     flex-direction: column;
@@ -45,7 +45,6 @@
 }
 
 .menu__title-link {
-    width: 10%;
     color: hsl(var(--LIGHT-HSL));
     font-size: 2rem;
     font-weight: 900;
@@ -133,7 +132,7 @@
     font-family: serif;
     text-transform: uppercase;
     letter-spacing: .1ch;
-    margin-top: auto;
+    margin-top: 1rem;
     align-self: center;
     padding: .25rem;
     border-radius: 1rem;
