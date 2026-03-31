@@ -58,7 +58,7 @@ main {
     justify-content: space-between;
 
     position: relative;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 footer {
@@ -90,23 +90,27 @@ menu {
 }
 
 .random__container {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
+    position: fixed;
+    inset: 0;
+    display: flex;
 }
 
 .random__button {
+    margin: auto;
     border: none;
     background-color: transparent;
     color: hsl(var(--TEXT-DARK-HSL));
     cursor: pointer;
-    margin: auto;
+    width: calc(100% - 6rem);
+    height: calc(100% - 6rem);
 
     display: flex;
     justify-content: center;
+    justify-items: center;
 }
 
 .random__text {
+    margin: auto;
+    display: block;
     font-size: min(50vw, 15rem);
 }

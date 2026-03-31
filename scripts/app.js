@@ -36,7 +36,7 @@ class RandomNumberGenerator {
         this.addToHistory(result);
         this.incrementCounter();
         saveSettings();
-        resizeValue(.8);
+        resizeValue();
     }
 
     addToHistory(result) {
@@ -77,7 +77,7 @@ class RandomFoodGenerator {
         this.addToHistory(result);
         this.incrementCounter();
         saveSettings();
-        resizeValue(.8);
+        resizeValue();
     }
 
     filterFoods() {
@@ -166,15 +166,14 @@ function moveMenuIcon() {
     settingsLink.style.cssText = style;
 }
 
-function resizeValue(width = 1) {
+function resizeValue() {
     const container = document.querySelector('.random__container');
     const button = document.querySelector('.random__button');
     const text = document.querySelector('.random__text');
-    const scaleX = width * container.clientWidth / text.scrollWidth;
-    const scaleY = width * container.clientHeight / text.scrollHeight;
-    const scale = Math.min(scaleX, scaleY);
-    // button.style.transformOrigin = "center";
-    button.style.transform = `scale(${scale})`;
+    const scaleX = button.clientWidth / text.scrollWidth;
+    const scaleY = button.clientHeight / text.scrollHeight;
+    const scale = Math.min(scaleX, scaleY, 1);
+    text.style.transform = `scale(${scale})`;
 }
 
 function init() {
